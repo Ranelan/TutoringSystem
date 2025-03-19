@@ -9,7 +9,13 @@ public class Student {
     private String contact_number;
     private String email;
 
-    public Student(Builder builder) {
+    private Student(Builder builder) {
+        this.student_id = builder.student_id;
+        this.first_name = builder.first_name;
+        this.last_name = builder.last_name;
+        this.date_of_birth = builder.date_of_birth;
+        this.contact_number = builder.contact_number;
+        this.email = builder.email;
     }
 
     public int getStudent_id() {
