@@ -16,7 +16,7 @@ public class Assignment {
     private LocalDate dueDate;
     private int maxPoints;
 
-    public Assignment() {
+    private Assignment() {
     }
 
     public Assignment(AssignmentBuilder assignmentBuilder){
