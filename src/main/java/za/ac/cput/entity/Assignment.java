@@ -5,7 +5,7 @@ Date: 20 March 2025
  */
 
 
-package za.ac.cput.domain;
+package za.ac.cput.entity;
 
 import java.time.LocalDate;
 
