@@ -14,7 +14,7 @@ public class Tutor {
     private String contactNumber;
     private String email;
 
-    public Tutor() {
+    private Tutor() {
     }
 
     public Tutor(Tutor.Builder builder) {
