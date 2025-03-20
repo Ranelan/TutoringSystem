@@ -16,10 +16,10 @@ public class Assignment {
     private LocalDate dueDate;
     private int maxPoints;
 
-    private Assignment() {
+    public Assignment() {
     }
 
-    public Assignment(AssignmentBuilder assignmentBuilder){
+    private Assignment(AssignmentBuilder assignmentBuilder){
         this.assignmentId = assignmentBuilder.assignmentId;
         this.title = assignmentBuilder.title;
         this.description = assignmentBuilder.description;
