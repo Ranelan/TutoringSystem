@@ -1,3 +1,9 @@
+/*
+Tutor.java
+Author : Lebuhang Nyanyantsi (222184353)
+Date: 20 March 2025
+ */
+
 package za.ac.cput;
 
 public class Tutor {
