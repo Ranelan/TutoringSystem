@@ -5,7 +5,7 @@ public class Tutor {
     private String firstName;
     private String lastName;
     private String qualification;
-    private String contactNumber; // Changed from int to String
+    private String contactNumber;
     private String email;
 
     public Tutor() {
