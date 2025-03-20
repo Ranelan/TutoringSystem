@@ -14,10 +14,10 @@ public class Tutor {
     private String contactNumber;
     private String email;
 
-    private Tutor() {
+    public Tutor() {
     }
 
-    public Tutor(Tutor.Builder builder) {
+    private Tutor(Builder builder) {
         this.tutorID = builder.tutorID;
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;
