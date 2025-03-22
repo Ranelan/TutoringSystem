@@ -1,13 +1,24 @@
+/*
+Enrollment.java
+Author: Ranelani Engel (221813853)
+Date: 19 March 2025
+*/
+
 package za.ac.cput.entity;
 
 public class Enrollment {
-   private int enrollmentId;
-   private Student student;
-   private Course course;
-   private String enrollmentDate;
-   private String grade;
+    private int enrollmentId;
+    private Student student;
+    private Course course;
+    private String enrollmentDate;
+    private String grade;
 
-    private Enrollment(Enrollment enrollment) {
+    private Enrollment(EnrollmentBuilder builder) {
+        this.enrollmentId = builder.enrollmentId;
+        this.student = builder.student;
+        this.course = builder.course;
+        this.enrollmentDate = builder.enrollmentDate;
+        this.grade = builder.grade;
     }
 
     public int getEnrollmentId() {
@@ -28,6 +39,17 @@ public class Enrollment {
 
     public String getGrade() {
         return grade;
+    }
+
+    @Override
+    public String toString() {
+        return "Enrollment{" +
+                "enrollmentId=" + enrollmentId +
+                ", student=" + student +
+                ", course=" + course +
+                ", enrollmentDate='" + enrollmentDate + '\'' +
+                ", grade='" + grade + '\'' +
+                '}';
     }
 
     public static class EnrollmentBuilder {
@@ -61,9 +83,9 @@ public class Enrollment {
             this.grade = grade;
             return this;
         }
-    }
 
-    public Enrollment build() {
-        return new Enrollment(this);
+        public Enrollment build() {
+            return new Enrollment(this);
+        }
     }
 }
