@@ -15,6 +15,7 @@ public class Assignment {
     private String description;
     private LocalDate dueDate;
     private int maxPoints;
+    Course course;
 
     public Assignment() {
     }
@@ -25,6 +26,7 @@ public class Assignment {
         this.description = assignmentBuilder.description;
         this.dueDate = assignmentBuilder.dueDate;
         this.maxPoints = assignmentBuilder.maxPoints;
+        this.course = course;
     }
 
     public int getAssignmentId() {
@@ -47,6 +49,10 @@ public class Assignment {
         return maxPoints;
     }
 
+    public Course getCourse() {
+        return course;
+    }
+
     @Override
     public String toString() {
         return "Assignment{" +
@@ -55,6 +61,7 @@ public class Assignment {
                 ", description='" + description + '\'' +
                 ", dueDate=" + dueDate +
                 ", maxPoints=" + maxPoints +
+                ", course=" + (course != null ? course.getCourseName() : " ") +
                 '}';
     }
 
@@ -64,6 +71,8 @@ public class Assignment {
         private String description;
         private LocalDate dueDate;
         private int maxPoints;
+        Course course;
+
 
         public AssignmentBuilder() {
 
@@ -91,6 +100,11 @@ public class Assignment {
 
         public AssignmentBuilder setMaxPoints(int maxPoints) {
             this.maxPoints = maxPoints;
+            return this;
+        }
+
+        public AssignmentBuilder setCourse(Course course) {
+            this.course = course;
             return this;
         }
 
