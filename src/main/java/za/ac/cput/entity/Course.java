@@ -7,7 +7,7 @@ Date: 20 March 2025
 
 
 package za.ac.cput.entity;
-import za.ac.cput.Tutor;
+
 
 public class Course {
     private int courseId;

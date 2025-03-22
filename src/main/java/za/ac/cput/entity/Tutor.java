@@ -4,7 +4,7 @@ Author : Lebuhang Nyanyantsi (222184353)
 Date: 20 March 2025
  */
 
-package za.ac.cput;
+package za.ac.cput.entity;
 
 public class Tutor {
     private int tutorID;
@@ -101,6 +101,7 @@ public class Tutor {
         }
 
         public Tutor build() {
+
             return new Tutor(this);
         }
     }
