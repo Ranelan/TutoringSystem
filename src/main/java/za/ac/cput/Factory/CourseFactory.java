@@ -1,9 +1,9 @@
 //Author: Scelo Kevin Nyandeni 230189695
 
-package za.ac.cput.factory;
+package za.ac.cput.Factory;
 
-import za.ac.cput.entity.Course;
-import za.ac.cput.entity.Tutor;
+import za.ac.cput.Entity.Course;
+import za.ac.cput.Entity.Tutor;
 
 public class CourseFactory {
     public static Course createCourse(int courseId, String courseName, String courseDescription, Tutor tutor) {
