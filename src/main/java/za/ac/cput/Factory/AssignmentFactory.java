@@ -9,28 +9,26 @@ package za.ac.cput.Factory;
 
 import za.ac.cput.Entity.Assignment;
 import za.ac.cput.Entity.Course;
+import za.ac.cput.Utility.Helper;
 
 import java.time.LocalDate;
 
 public class AssignmentFactory {
-    public static Assignment createAssignment(int assignmentId, String title, String description, LocalDate dueDate,int maxPoints, Course course){
-        if (assignmentId <= 0){
+    public static Assignment createAssignment(int assignmentId, String title, String description, String dueDate,int maxPoints, Course course){
+
+        if (!Helper.isValid(assignmentId)){
             return null;
         }
 
-        if (title.isEmpty() || title == null){
+        if (Helper.isNullOrEmpty(title) || Helper.isNullOrEmpty(description)){
             return null;
         }
 
-        if (description.isEmpty() || description == null){
+        if (dueDate == null || !Helper.isValidDate(dueDate.toString())){
             return null;
         }
 
-        if (dueDate == null){
-            return null;
-        }
-
-        if (maxPoints <= 0){
+        if (!Helper.isValidMaxPoints(maxPoints)){
             return null;
         }
 
