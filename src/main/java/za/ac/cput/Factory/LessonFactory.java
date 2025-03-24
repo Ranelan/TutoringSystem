@@ -1,8 +1,8 @@
 //Author: Scelo Kevin Nyandeni 230189695
 
-package za.ac.cput.factory;
-import za.ac.cput.entity.Course;
-import za.ac.cput.entity.Lesson;
+package za.ac.cput.Factory;
+import za.ac.cput.Entity.Course;
+import za.ac.cput.Entity.Lesson;
 
 public class LessonFactory {
     public static Lesson createLesson(int lessonId, Course course, String title, String description, String date, String startTime, String endTime ) {
