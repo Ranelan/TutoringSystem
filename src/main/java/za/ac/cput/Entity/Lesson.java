@@ -1,4 +1,6 @@
-package za.ac.cput.Entity;
+//Author: Scelo Kevin Nyandeni 230189695
+
+package za.ac.cput.entity;
 
 public class Lesson {
     private int lessonId;
@@ -12,14 +14,14 @@ public class Lesson {
     public Lesson() {
 
     }
-    private Lesson(Builder builder) {
-        this.lessonId = builder.lessonId;
-        this.course = builder.course;
-        this.title = builder.title;
-        this.description = builder.description;
-        this.date = builder.date;
-        this.startTime = builder.startTime;
-        this.endTime = builder.endTime;
+    private Lesson(LessonBuilder lessonbuilder) {
+        this.lessonId = lessonbuilder.lessonId;
+        this.course = lessonbuilder.course;
+        this.title = lessonbuilder.title;
+        this.description = lessonbuilder.description;
+        this.date = lessonbuilder.date;
+        this.startTime = lessonbuilder.startTime;
+        this.endTime = lessonbuilder.endTime;
     }
 
 
@@ -64,7 +66,7 @@ public class Lesson {
                 '}';
     }
 
-    public static class Builder {
+    public static class LessonBuilder {
         private int lessonId;
         private Course course;
         private String title;
@@ -73,17 +75,17 @@ public class Lesson {
         private String startTime;
         private String endTime;
 
-        public Builder setLessonId(int lessonId) {
+        public LessonBuilder setLessonId(int lessonId) {
             this.lessonId = lessonId;
             return this;
         }
 
-        public Builder setCourse(Course course) {
+        public LessonBuilder setCourse(Course course) {
             this.course = course;
             return this;
         }
 
-        public Builder setTitle(String title) {
+        public LessonBuilder setTitle(String title) {
             this.title = title;
             return this;
         }
@@ -93,21 +95,21 @@ public class Lesson {
             return this;
         }
 
-        public Builder setDate(String date) {
+        public LessonBuilder setDate(String date) {
             this.date = date;
             return this;
         }
 
-        public Builder setStartTime(String startTime) {
+        public LessonBuilder setStartTime(String startTime) {
             this.startTime = startTime;
             return this;
         }
 
-        public Builder setEndTime(String endTime) {
+        public LessonBuilder setEndTime(String endTime) {
             this.endTime = endTime;
             return this;
         }
-        public Lesson Build(){
+        public Lesson build(){
             return new Lesson(this);
         }
 
