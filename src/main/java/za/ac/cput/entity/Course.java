@@ -19,11 +19,11 @@ public class Course {
 
     }
 
-    private Course(Builder builder) {
-        this.courseId = builder.courseId;
-        this.courseName = builder.courseName;
-        this.courseDescription = builder.courseDescription;
-        this.tutor = builder.tutor;
+    private Course(CourseBuilder courseBuilder) {
+        this.courseId = courseBuilder.courseId;
+        this.courseName = courseBuilder.courseName;
+        this.courseDescription = courseBuilder.courseDescription;
+        this.tutor = courseBuilder.tutor;
 
     }
 
@@ -53,28 +53,28 @@ public class Course {
                 '}';
     }
 
-    public static class Builder {
+    public static class CourseBuilder {
         private int courseId;
         private String courseName;
         private String courseDescription;
         private Tutor tutor;
 
-        public Builder setCourseId(int courseId) {
+        public CourseBuilder setCourseId(int courseId) {
             this.courseId = courseId;
             return this;
         }
 
-        public Builder setCourseName(String courseName) {
+        public CourseBuilder setCourseName(String courseName) {
             this.courseName = courseName;
             return this;
         }
 
-        public Builder setCourseDescription(String courseDescription) {
+        public CourseBuilder setCourseDescription(String courseDescription) {
             this.courseDescription = courseDescription;
             return this;
         }
 
-        public Builder setTutor(Tutor tutor) {
+        public CourseBuilder setTutor(Tutor tutor) {
             this.tutor = tutor;
             return this;
         }
