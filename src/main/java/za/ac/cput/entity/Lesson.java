@@ -109,7 +109,7 @@ public class Lesson {
             this.endTime = endTime;
             return this;
         }
-        public Lesson Build(){
+        public Lesson build(){
             return new Lesson(this);
         }
 
