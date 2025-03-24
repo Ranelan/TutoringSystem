@@ -14,14 +14,14 @@ public class Lesson {
     public Lesson() {
 
     }
-    private Lesson(LessonBuilder lessonbuilder) {
-        this.lessonId = lessonbuilder.lessonId;
-        this.course = lessonbuilder.course;
-        this.title = lessonbuilder.title;
-        this.description = lessonbuilder.description;
-        this.date = lessonbuilder.date;
-        this.startTime = lessonbuilder.startTime;
-        this.endTime = lessonbuilder.endTime;
+    private Lesson(LessonBuilder lessonBuilder) {
+        this.lessonId = lessonBuilder.lessonId;
+        this.course = lessonBuilder.course;
+        this.title = lessonBuilder.title;
+        this.description = lessonBuilder.description;
+        this.date = lessonBuilder.date;
+        this.startTime = lessonBuilder.startTime;
+        this.endTime = lessonBuilder.endTime;
     }
 
 
@@ -90,7 +90,7 @@ public class Lesson {
             return this;
         }
 
-        public Builder setDescription(String description) {
+        public LessonBuilder setDescription(String description) {
             this.description = description;
             return this;
         }
@@ -109,7 +109,7 @@ public class Lesson {
             this.endTime = endTime;
             return this;
         }
-        public Lesson Build(){
+        public Lesson build(){
             return new Lesson(this);
         }
 
