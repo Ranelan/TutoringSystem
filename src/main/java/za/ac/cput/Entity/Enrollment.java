@@ -4,7 +4,7 @@ Author: Ranelani Engel (221813853)
 Date: 19 March 2025
 */
 
-package za.ac.cput.entity;
+package za.ac.cput.Entity;
 
 public class Enrollment {
     private int enrollmentId;

@@ -1,4 +1,4 @@
-package za.ac.cput.entity;
+package za.ac.cput.Entity;
 
 public class Lesson {
     private int lessonId;

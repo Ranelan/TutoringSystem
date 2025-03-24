@@ -5,10 +5,10 @@ Author: Ntuli Simangaliso Mazweni (230070728)
 Date: 20 March 2025
  */
 
-package za.ac.cput.factory;
+package za.ac.cput.Factory;
 
-import za.ac.cput.entity.Assignment;
-import za.ac.cput.entity.Course;
+import za.ac.cput.Entity.Assignment;
+import za.ac.cput.Entity.Course;
 
 import java.time.LocalDate;
 
