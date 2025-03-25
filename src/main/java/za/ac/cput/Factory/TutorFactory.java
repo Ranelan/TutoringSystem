@@ -1,16 +1,25 @@
+/*
+ * TutorFactory.java
+ * Author: Lebuhang Nyanyantsi (222184353)
+ * Date: 24 March 2025
+ */
+
 package za.ac.cput.Factory;
 
 import za.ac.cput.Entity.Tutor;
+import za.ac.cput.Utility.Helper;
 
 public class TutorFactory {
-
     public static Tutor createTutor(int tutorID, String firstName, String lastName,
                                     String qualification, String contactNumber, String email) {
-        if (firstName == null || firstName.isEmpty() ||
-                lastName == null || lastName.isEmpty() ||
-                qualification == null || qualification.isEmpty() ||
-                email == null || email.isEmpty()) {
-            throw new IllegalArgumentException("All fields are required.");
+
+        if (tutorID <= 0
+                || Helper.isNullOrEmpty(firstName)
+                || Helper.isNullOrEmpty(lastName)
+                || Helper.isNullOrEmpty(qualification)
+                || !Helper.isValidContactNumber(contactNumber)
+                || !Helper.isValidEmail(email)) {
+            return null;
         }
 
         return new Tutor.Builder()
