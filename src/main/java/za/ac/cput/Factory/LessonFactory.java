@@ -3,27 +3,29 @@
 package za.ac.cput.Factory;
 import za.ac.cput.Entity.Course;
 import za.ac.cput.Entity.Lesson;
+import za.ac.cput.Utility.Helper;
 
 public class LessonFactory {
     public static Lesson createLesson(int lessonId, Course course, String title, String description, String date, String startTime, String endTime ) {
 
-        if(lessonId <= 0){
+        if(!Helper.isValid(lessonId)){
             return null;
         }
-    if(title == null || title.isEmpty()){
+        if(course == null){
+            return null;
+        }
+    if(Helper.isNullOrEmpty(title) || Helper.isNullOrEmpty(description)) {
        return null;
     }
-    if(description == null || description.isEmpty()){
+    
+    if(!Helper.isValidDate(date)){
         return null;
     }
-    if(date == null || date.isEmpty()){
-        return null;
-    }
-    if(startTime == null || startTime.isEmpty()){
+    if(!Helper.isValidTime(startTime)){
         return null;
 
     }
-    if(endTime == null || endTime.isEmpty()){
+   if(!Helper.isValidTime(endTime)){
         return null;
     }
     return new Lesson.LessonBuilder()
