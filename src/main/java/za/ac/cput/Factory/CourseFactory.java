@@ -9,7 +9,7 @@ import za.ac.cput.Utility.Helper;
 public class CourseFactory {
     public static Course createCourse(int courseId, String courseName, String courseDescription, Tutor tutor) {
 
-        if (!Helper.isValid(courseId){
+        if (!Helper.isValid(courseId)){
             return null;
         }
         if(Helper.isNullOrEmpty(courseName) || Helper.isNullOrEmpty(courseDescription)) {

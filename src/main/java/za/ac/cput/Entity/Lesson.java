@@ -16,7 +16,7 @@ public class Lesson {
     }
     private Lesson(LessonBuilder lessonBuilder) {
         this.lessonId = lessonBuilder.lessonId;
-        this.course = lessonbuilder.course;
+        this.course = lessonBuilder.course;
         this.title = lessonBuilder.title;
         this.description = lessonBuilder.description;
         this.date = lessonBuilder.date;
