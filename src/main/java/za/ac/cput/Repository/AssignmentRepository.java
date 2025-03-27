@@ -13,7 +13,12 @@ public class AssignmentRepository {
     }
 
     public Assignment getAssignment(int id) {
-            return assignmentList.get(id);
+            for (Assignment assignment : assignmentList) {
+                if(assignment.getAssignmentId() == id){
+                    return assignment;
+                }
+            }
+            throw new IllegalArgumentException(" NOT FOUND!");
     }
 
     public void updateAssignment(Assignment assignment) {
