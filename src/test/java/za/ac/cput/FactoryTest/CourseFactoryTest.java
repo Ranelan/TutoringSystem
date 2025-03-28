@@ -17,7 +17,7 @@ public class CourseFactoryTest {
 
     @Test
     public void testCreateCourse() {
-        Tutor tutor = new Tutor.TutorBuilder()
+        Tutor tutor = new Tutor.Builder()
                 .setTutorId(11)
                 .setTutorName("Scelo Kevin")
                 .setTutorEmail("scelo@example.com")
@@ -40,7 +40,7 @@ public class CourseFactoryTest {
 
    @Test
     void testInvalidCourseId() {
-        Tutor tutor = new Tutor.TutorBuilder()
+        Tutor tutor = new Tutor.Builder()
                 .setTutorId(11)
                 .setTutorName("Scelo Kevin")
                 .setTutorEmail("scelo@example.com")
@@ -58,7 +58,7 @@ public class CourseFactoryTest {
 
    @Test
     void testInvalidCourseName() {
-        Tutor tutor = new Tutor.TutorBuilder()
+        Tutor tutor = new Tutor.Builder()
                 .setTutorId(11)
                 .setTutorName("Scelo Kevin")
                 .setTutorEmail("scelo@example.com")
@@ -76,7 +76,7 @@ public class CourseFactoryTest {
   
    @Test
     void testInvalidCourseDescription() {
-        Tutor tutor = new Tutor.TutorBuilder()
+        Tutor tutor = new Tutor.Builder()
                 .setTutorId(11)
                 .setTutorName("Scelo Kevin")
                 .setTutorEmail("scelo@example.com")
@@ -93,7 +93,7 @@ public class CourseFactoryTest {
     }
     @Test
     void testCourseNameAndDescriptionEmpty() {
-     Tutor tutor = new Tutor.TutorBuilder()
+     Tutor tutor = new Tutor.Builder()
         .setTutorId(11)
         .setTutorName("Scelo Kevin")
         .setTutorEmail("scelo@example.com")
