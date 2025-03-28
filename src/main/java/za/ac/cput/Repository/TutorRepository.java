@@ -1,47 +1,45 @@
 package za.ac.cput.Repository;
 
+import za.ac.cput.Entity.Student;
 import za.ac.cput.Entity.Tutor;
 import java.util.LinkedList;
 import java.util.List;
 
-public class TutorRepository implements ITutorRepository {
+public class TutorRepository {
 
-    private static ITutorRepository repositoryTutor = null;
-    private List<Tutor> tutorList;
-    private TutorRepository(){
-        tutorList = new LinkedList<Tutor>();
+    private final List<Tutor> tutorList = new LinkedList<>();
+
+    public void save(Tutor tutor){
+        tutorList.add(tutor);
     }
 
-    public static ITutorRepository getRepository(){
-        if(repositoryTutor==null){
-            repositoryTutor = new TutorRepository();
+    public Tutor getTutor(int id) {
+        for (Tutor tutor : tutorList) {
+            if (tutor.getTutorID() == id) {
+                return tutor;
+            }
         }
-        return repositoryTutor;
-    }
-
-
-    @Override
-    public List<Tutor> getAll() {
-        return List.of();
-    }
-
-    @Override
-    public Object create(Object o) {
         return null;
     }
 
-    @Override
-    public Object read(Object o) {
-        return null;
+    public void updateTutor(Tutor updatedTutor) {
+        for (int i = 0; i < tutorList.size(); i++) {
+            if (tutorList.get(i).getTutorID() == updatedTutor.getTutorID()) {
+                tutorList.set(i, updatedTutor);
+                return;
+            }
+        }
     }
 
-    @Override
-    public Object update(Object o) {
-        return null;
+
+    public boolean deleteTutor(int id) {
+        return tutorList.removeIf(tutor -> tutor.getTutorID() == id);
     }
 
-    @Override
-    public boolean delete(Object o) {
-        return false;
+    // Get all Tutors
+    public List<Tutor> getAllTutors() {
+        return new LinkedList<>(tutorList);
     }
+
+
 }
