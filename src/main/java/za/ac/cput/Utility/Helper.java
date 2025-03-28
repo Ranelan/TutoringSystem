@@ -14,8 +14,8 @@ public class Helper {
         return (str == null || str.trim().isEmpty());
     }
 
-    public static boolean isValid(int id){
-        return (id >= 0);
+    public static boolean isValid(int studentId) {
+        return studentId > 0;
     }
 
     public static boolean isValidContactNumber(String contactNumber){
