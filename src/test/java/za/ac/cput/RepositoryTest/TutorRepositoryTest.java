@@ -24,9 +24,9 @@ class TutorRepositoryTest {
     @BeforeEach
     void setUp() {
         repository = TutorRepository.getTutorInstance();
-        repository.clear();
 
-        tutor1 = new Tutor.TutorBuilder()
+        // Initialize test tutors using the Builder pattern
+        tutor1 = new Tutor.Builder()
                 .setTutorID(1001)
                 .setFirstName("Thapelo")
                 .setLastName("Nzide")
@@ -35,7 +35,7 @@ class TutorRepositoryTest {
                 .setEmail("thapelo.nzide@cput.ac.za")
                 .build();
 
-        tutor2 = new Tutor.TutorBuilder()
+        tutor2 = new Tutor.Builder()
                 .setTutorID(1002)
                 .setFirstName("Lebohang")
                 .setLastName("Mokoena")
@@ -44,13 +44,14 @@ class TutorRepositoryTest {
                 .setEmail("lebo.mokoena@cput.ac.za")
                 .build();
 
+        // Add tutors to repository
         repository.create(tutor1);
         repository.create(tutor2);
     }
 
     @Test
     void testCreate() {
-        Tutor newTutor = new Tutor.TutorBuilder()
+        Tutor newTutor = new Tutor.Builder()
                 .setTutorID(1003)
                 .setFirstName("John")
                 .setLastName("Doe")
@@ -60,20 +61,21 @@ class TutorRepositoryTest {
                 .build();
 
         Tutor createdTutor = repository.create(newTutor);
-        assertNotNull(createdTutor);
-        assertEquals(1003, createdTutor.getTutorID());
+        assertNotNull(createdTutor, "Tutor creation failed");
+        assertEquals(1003, createdTutor.getTutorID(), "Tutor ID mismatch");
     }
 
     @Test
     void testRead() {
         Tutor foundTutor = repository.read(1001);
-        assertNotNull(foundTutor);
-        assertEquals("Thapelo", foundTutor.getFirstName());
+        assertNotNull(foundTutor, "Tutor not found");
+        assertEquals("Thapelo", foundTutor.getFirstName(), "First name mismatch");
+        assertEquals("thapelo.nzide@cput.ac.za", foundTutor.getEmail(), "Email mismatch");
     }
 
     @Test
     void testUpdate() {
-        Tutor updatedTutor = new Tutor.TutorBuilder()
+        Tutor updatedTutor = new Tutor.Builder()
                 .setTutorID(1001)
                 .setFirstName("Thapelo Junior")
                 .setLastName("Nzide")
@@ -83,16 +85,16 @@ class TutorRepositoryTest {
                 .build();
 
         Tutor result = repository.update(updatedTutor);
-        assertNotNull(result);
-        assertEquals("Thapelo Junior", result.getFirstName());
-        assertEquals("thapelo.junior@cput.ac.za", result.getEmail());
+        assertNotNull(result, "Update failed");
+        assertEquals("Thapelo Junior", result.getFirstName(), "First name not updated");
+        assertEquals("thapelo.junior@cput.ac.za", result.getEmail(), "Email not updated");
     }
 
     @Test
     void testDelete() {
         boolean isDeleted = repository.delete(1002);
-        assertTrue(isDeleted);
-        assertNull(repository.read(1002));
+        assertTrue(isDeleted, "Delete operation failed");
+        assertNull(repository.read(1002), "Tutor should be deleted");
     }
 
     @Test
@@ -102,6 +104,6 @@ class TutorRepositoryTest {
         for (Tutor tutor : tutorList) {
             System.out.println(tutor.getTutorID() + " - " + tutor.getFirstName());
         }
-        assertEquals(2, tutorList.size());
+        assertEquals(2, tutorList.size(), "Incorrect number of tutors");
     }
 }
