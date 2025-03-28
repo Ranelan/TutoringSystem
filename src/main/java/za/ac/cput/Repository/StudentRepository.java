@@ -1,3 +1,10 @@
+/*
+StudentReposatory.java
+Author: Ranelani Engel (221813853)
+Date: 28 March 2025
+ */
+
+
 package za.ac.cput.Repository;
 
 import za.ac.cput.Entity.Student;
@@ -61,4 +68,8 @@ public class StudentRepository implements IStudentRepository{
     public List<Student> getAll() { // Retrieves all student records.
         return new LinkedList<>(studentList); // Return a copy to avoid external modification
     }
+    public void clear() { //clear out students that might have been saved before to avaid duplicates
+        studentList.clear();
+    }
+
 }

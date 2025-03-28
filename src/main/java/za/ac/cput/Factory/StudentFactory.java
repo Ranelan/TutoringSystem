@@ -12,14 +12,15 @@ import za.ac.cput.Utility.Helper;
 public class StudentFactory {
     public static Student createStudent(int studentId, String firstName, String lastName, String dateOfBirth, String contactNumber, String email) {
 
-        if (Helper.isValid(studentId)
+        if (!Helper.isValid(studentId)
                 || Helper.isNullOrEmpty(firstName)
                 || Helper.isNullOrEmpty(lastName)
-                || Helper.isValidDate(dateOfBirth)
-                || Helper.isValidContactNumber(contactNumber)
-                || Helper.isValidEmail(email)) {
+                || !Helper.isValidDate(dateOfBirth)  // Negate condition
+                || !Helper.isValidContactNumber(contactNumber)  // Negate condition
+                || !Helper.isValidEmail(email)) {  // Negate condition
             return null;
         }
+
         return new Student.StudentBuilder()
                 .setStudentId(studentId)
                 .setFirstName(firstName)
