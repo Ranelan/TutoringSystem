@@ -24,28 +24,41 @@ public class CourseRepository1 implements ICourseRepository {
     }
     @Override
     public List<Course> getAll() {
-        return List.of();
+        return courseList;
     }
 
     @Override
     public Course create(Course course) {
-        return null;
+        courseList.add(course);
+        return course;
     }
 
     @Override
-    public Course read(String s) {
+    public Course read(Integer id) {
+        for(Course course : courseList){
+            if(course.getCourseId() == id){
+                return course;
+            }
+        }
         return null;
     }
 
     @Override
     public Course update(Course course) {
-        return null;
+        for (int i = 0; i < courseList.size(); i++){
+            if(courseList.get(i).getCourseId() == course.getCourseId()){
+                courseList.set(i, course);
+                return course;
+            }
+        }
+        return course;
     }
 
     @Override
-    public boolean delete(String s) {
-        return false;
-    }
+    public boolean delete(Integer id) {
+
+        return courseList.removeIf(course -> course.getCourseId() == id);
+}
 }
 
 

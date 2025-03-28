@@ -7,6 +7,6 @@ import za.ac.cput.Entity.Course;
 
 import java.util.List;
 
-public interface ICourseRepository extends IRepository<Course, String>{
+public interface ICourseRepository extends IRepository<Course, Integer>{
   List<Course> getAll();
 }
