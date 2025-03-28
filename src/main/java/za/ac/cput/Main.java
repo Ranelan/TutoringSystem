@@ -1,8 +1,8 @@
 package za.ac.cput;
 
 
-import za.ac.cput.entity.Student;
-import za.ac.cput.factory.StudentFactory;
+import za.ac.cput.Entity.Student;
+import za.ac.cput.Factory.StudentFactory;
 
 public class Main {
     public static void main(String[] args) {

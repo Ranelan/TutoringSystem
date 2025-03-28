@@ -5,15 +5,14 @@ Date: 20 March 2025
  */
 
 
-package za.ac.cput.entity;
+package za.ac.cput.Entity;
 
-import java.time.LocalDate;
 
 public class Assignment {
     private int assignmentId;
     private String title;
     private String description;
-    private LocalDate dueDate;
+    private String dueDate;
     private int maxPoints;
     Course course;
 
@@ -41,7 +40,7 @@ public class Assignment {
         return description;
     }
 
-    public LocalDate getDueDate() {
+    public String getDueDate() {
         return dueDate;
     }
 
@@ -69,7 +68,7 @@ public class Assignment {
         private int assignmentId;
         private String title;
         private String description;
-        private LocalDate dueDate;
+        private String dueDate;
         private int maxPoints;
         Course course;
 
@@ -93,7 +92,7 @@ public class Assignment {
             return this;
         }
 
-        public AssignmentBuilder setDueDate(LocalDate dueDate) {
+        public AssignmentBuilder setDueDate(String dueDate) {
             this.dueDate = dueDate;
             return this;
         }
