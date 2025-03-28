@@ -6,7 +6,7 @@ Date: 27 March 2025
 
 package za.ac.cput.Repository;
 
-public interface IRepository <T, ID>{
+public interface IRepository <T, ID>{  //Generic Repository Interface having CRUD operations
 
     T create(T t);
     T read(ID id);

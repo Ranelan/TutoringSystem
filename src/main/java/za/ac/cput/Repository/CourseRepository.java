@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class CourseRepository{
-  private final List<Course> CourseList = new LinkedList<>();
+  private final List<Course> courseList = new LinkedList<>();
 
   public void save(Course course){
     courseList.add(course);

@@ -24,16 +24,19 @@ public class TutorRepository1 implements ITutorRepository{
 
     @Override
     public List<Tutor> getAll() {
+
         return List.of();
     }
 
     @Override
     public Tutor create(Tutor tutor) {
+
         return null;
     }
 
     @Override
     public Tutor read(String s) {
+
         return null;
     }
 
