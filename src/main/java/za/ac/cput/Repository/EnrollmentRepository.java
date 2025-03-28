@@ -1,5 +1,5 @@
 /*
-EnrollmentRepository.java
+EnrollmentRepository2.java
 Author: Ntuli Simangaliso Mazweni (230070728)
 Date: 28 March 2025
  */
@@ -8,39 +8,71 @@ package za.ac.cput.Repository;
 
 import za.ac.cput.Entity.Enrollment;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
-public class EnrollmentRepository {
-    private final List<Enrollment> enrollments = new LinkedList<>();
+public class EnrollmentRepository implements IEnrollmentRepository {
 
-    public void save(Enrollment enrollment) {
-        enrollments.add(enrollment);
+    //Static instance for the singleton pattern
+    private static EnrollmentRepository enrollmentInstance;
+
+    //List to store Enrollment objects
+    private List<Enrollment> enrollments;
+
+    public EnrollmentRepository() {
+        enrollments = new ArrayList<Enrollment>();
     }
 
-    // Read - Get an enrollment by their id
-    public Enrollment getEnrollment(int id) {
-        if (id >= 0 && id < enrollments.size()) {
-            return enrollments.get(id);
+    public static EnrollmentRepository getInstance() {
+        if (enrollmentInstance == null) {
+            enrollmentInstance = new EnrollmentRepository();
+        }
+        return enrollmentInstance;
+    }
+
+    @Override
+    public Enrollment create(Enrollment enrollment) {
+        boolean validate = enrollments.add(enrollment);
+        if (validate) {
+            return enrollment;
         }
         return null;
     }
 
-    // Update - Update an enrollment by id
-    public boolean updateEnrollment(int id, Enrollment updatedEnrollment) {
+    @Override
+    public Enrollment read(Integer enrollmentId) {
+        for (Enrollment enrollment : enrollments) {
+            if (enrollment.getEnrollmentId() == enrollmentId) {
+                return enrollment;
+            }
+        }
+        return null;
+    }
+
+
+    @Override
+    public Enrollment update(Enrollment enrollment) {
         for (int i = 0; i < enrollments.size(); i++) {
-            if (enrollments.get(i).getEnrollmentId() == id) {
-                enrollments.set(i, updatedEnrollment);
-                return true; // Successfully updated
+            if (enrollments.get(i).getEnrollmentId() == enrollment.getEnrollmentId()) {
+                enrollments.set(i, enrollment);
+                return enrollment;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public boolean delete(Integer enrollmentId) {
+        for (Enrollment enrollment : enrollments) {
+            if (enrollment.getEnrollmentId() == enrollmentId) {
+                return enrollments.remove(enrollment);
             }
         }
         return false;
     }
 
-    // Delete - Remove an enrollment by ID
-    public boolean deleteEnrollment(int id) {
-        return enrollments.removeIf(enrollment -> enrollment.getEnrollmentId() == id);
+    @Override
+    public List<Enrollment> getAll() {
+        return new ArrayList<Enrollment>(enrollments);
     }
-
-
 }

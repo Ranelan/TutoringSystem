@@ -10,7 +10,8 @@ import za.ac.cput.Entity.Enrollment;
 
 import java.util.List;
 
-public interface IEnrollmentRepository extends IRepository<Enrollment, String>{
+public interface IEnrollmentRepository extends IRepository<Enrollment, Integer>{
     List<Enrollment> getAll();
+
 
 }
