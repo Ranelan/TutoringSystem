@@ -1,3 +1,9 @@
+/*
+EnrollmentRepository.java
+Author: Ntuli Simangaliso Mazweni (230070728)
+Date: 28 March 2025
+ */
+
 package za.ac.cput.Repository;
 
 import za.ac.cput.Entity.Enrollment;
