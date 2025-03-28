@@ -15,16 +15,13 @@ import za.ac.cput.Utility.Helper;
 public class EnrollmentFactory {
 
     public static Enrollment createEnrollment(int enrollmentId, Student student, Course course, String enrollmentDate, String grade) {
-
-        if(!Helper.isValid(enrollmentId)
+        if (!Helper.isValid(enrollmentId)
                 || student == null
                 || course == null
-                || Helper.isValidDate(enrollmentDate) || Helper.isNullOrEmpty(enrollmentDate)
+                || !Helper.isValidDate(enrollmentDate)
                 || Helper.isNullOrEmpty(grade)) {
             return null;
         }
-
-
         return new Enrollment.EnrollmentBuilder()
                 .setEnrollmentId(enrollmentId)
                 .setStudent(student)
@@ -33,4 +30,5 @@ public class EnrollmentFactory {
                 .setGrade(grade)
                 .build();
     }
+
 }
